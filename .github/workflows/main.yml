@@ -1,0 +1,15 @@
+on: [push]
+
+env:
+  BATTLE_ID: '<CURRENT_BATTLE_ID>'
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    name: Refresh submission
+    steps:
+      - id: refresh-submission
+        uses: ckb-platform/refresh-submission-action@v1
+        with:
+          team_token: "${{ secrets.TEAM_TOKEN }}"
+          battle_id: "$BATTLE_ID"
